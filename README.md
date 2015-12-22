@@ -1,7 +1,6 @@
 ## Orbital Dynamics Simulation
-12/21/15
-Gabriel Korgood
-Cooper Union
+12/21/15 | Gabriel Korgood | Cooper Union
+-------- | --------------- | ------------
 
 
 ##### GENERAL INFORMATION
