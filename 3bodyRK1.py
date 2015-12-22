@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 30 12:14:28 2015
-
-@author: Gabe
-"""
-
 from __future__ import division,print_function
 import math as m
 from visual import *
@@ -12,7 +5,7 @@ from visual import *
 ##Constants
 G = 0.0000000000667408
 t = 0
-deltat = 0.06
+deltat = 0.6
 
 ##Earth Constants
 earth = sphere(pos=[-75000000,0],radius=6371000,color=(0,0.5,0.5))
@@ -40,7 +33,7 @@ print(U+earth2U+K)
 ##E = text(text='The energy of the ship is: %f' % (U+K),align='right', pos=(10000,0), height = 2000, depth=0.01, color=color.white)
 
 while t < 1000000:
-    rate(10)
+    rate(10000000)
     
     ##Get the ship's current Location, Velocity, and Energy
     earthdist = m.sqrt(m.pow(earth.pos.x-ship.pos.x,2)+m.pow(earth.pos.y-ship.pos.y,2))
@@ -63,31 +56,15 @@ while t < 1000000:
     shipaccx = earthaccx + earth2accx
     shipaccy = earthaccy + earth2accy
     
-    ##Update Ship's Position, Velocity
-    k1 = ship.pos.x + (ship.velocity.x * deltat) + (0.5 * (shipaccx) * m.pow(deltat,2))
-    l1 = ship.pos.y + (ship.velocity.y * deltat) + (0.5 * (shipaccy) * m.pow(deltat,2))
-    m1 = ship.velocity.x + shipaccx*deltat
-    n1 = ship.velocity.y + shipaccy*deltat
-    k2 = ship.pos.x + ((ship.velocity.x + 0.5*deltat*m1) * (0.5*deltat) + (0.5 * (shipaccx) * m.pow(0.5*deltat,2)))
-    l2 = ship.pos.y + ((ship.velocity.y + 0.5*deltat*n1) * (0.5*deltat) + (0.5 * (shipaccy) * m.pow(0.5*deltat,2)))
-    m2 = (ship.velocity.x + 0.5*deltat*m1) + 0.5*shipaccx*deltat
-    n2 = (ship.velocity.y + 0.5*deltat*n1) + 0.5*shipaccy*deltat
-    k3 = ship.pos.x + ((ship.velocity.x + 0.5*deltat*m2) * (0.5*deltat) + (0.5 * (shipaccx) * m.pow(deltat,2)))
-    l3 = ship.pos.y + ((ship.velocity.y + 0.5*deltat*n2) * (0.5*deltat) + (0.5 * (shipaccy) * m.pow(deltat,2)))
-    m3 = (ship.velocity.x + 0.5*deltat*m2) + 0.5*shipaccx*deltat
-    n3 = (ship.velocity.y + 0.5*deltat*n2) + 0.5*shipaccy*deltat
-    k4 = ship.pos.x + ((ship.velocity.x + deltat*m3) * (deltat) + (0.5 * (shipaccx) * m.pow(deltat,2)))
-    l4 = ship.pos.y + ((ship.velocity.y + deltat*n3) * (deltat) + (0.5 * (shipaccy) * m.pow(deltat,2)))
-    m4 = (ship.velocity.x + deltat*m3) + shipaccx*deltat
-    n4 = (ship.velocity.y + deltat*n3) + shipaccy*deltat
-    
-    ship.pos.x = ship.pos.x + ((deltat / 6) * (k1 + 2*k2 + 2*k3 + k4))
-    ship.pos.y = ship.pos.y + ((deltat / 6) * (l1 + 2*l2 + 2*l3 + l4))
-    ship.velocity.x = ship.velocity.x + ((deltat / 6) * (m1 + 2*m2 + 2*m3 + m4))
-    ship.velocity.y = ship.velocity.y + ((deltat / 6) * (n1 + 2*n2 + 2*n3 + n4))
-    
+    ##Update Ship's Position
+    ship.pos.x = ship.pos.x + (ship.velocity.x * deltat) + (0.5 * (shipaccx) * m.pow(deltat,2))
+    ship.pos.y = ship.pos.y + (ship.velocity.y * deltat) + (0.5 * (shipaccy) * m.pow(deltat,2))
     ##print("x=",ship.pos)
+    
+    ##Update Ship's Velocity
     ##print("v=",ship.velocity)
+    ship.velocity.x = ship.velocity.x + shipaccx*deltat
+    ship.velocity.y = ship.velocity.y + shipaccy*deltat
     
     ##Leave an Orbit Line
     ship.trail.append(pos=ship.pos)
