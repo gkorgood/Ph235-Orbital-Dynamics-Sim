@@ -1,4 +1,4 @@
-Orbital Dynamics Simulation
+## Orbital Dynamics Simulation
 12/21/15
 Gabriel Korgood
 Cooper Union
