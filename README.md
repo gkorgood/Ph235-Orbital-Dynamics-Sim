@@ -5,14 +5,14 @@ Cooper Union
 
 
 ##### GENERAL INFORMATION
-___________________
+_________________________
 
 These pieces of code simulate the movement of a spacecraft within two different
 gravitational systems, one with a single parent planet, and one with two planets
 of equal mass.
 
 ##### INSTALLATION & OPERATION
-________________________
+______________________________
 
 Requires some way to open and run Python (.py) files, including the VPython and
 Math libraries. Download the .zip from the
@@ -22,10 +22,20 @@ using a fourth order Runge-Kutta method, but is currentlynon-functional) in a
 Python IDE, and run them normally.
 
 ##### FILE MANIFEST
-_____________
+___________________
 
 - ~\Ph235-Orbital-Dynamics-Sim\
   - \2bodyRK1.py\
   - \3bodyRK1.py\
   - \3bodyRK4.py\
   - \README.md\
+
+##### INITIAL GOALS & CURRENT PROGRESS
+______________________________________
+
+- [ ] ~~Ascent from Earth's surface~~        (Abandoned due to complexity of atmospheric drag)
+- [ ] ~~Circularization burn~~               (Postponed due to complexity of rocket equation)
+- [x] Demonstration of stable Earth orbit
+- [ ] Transfer burn to solar orbit           (Postponed due to complexity of rocket equation)
+- [ ] Transfer burn to binary system         (Postponed due to complexity of rocket equation)
+- [x] Demonstration of chaotic binary orbit
