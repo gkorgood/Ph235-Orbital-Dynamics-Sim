@@ -34,7 +34,7 @@ ___________________
 ______________________________________
 
 - [ ] ~~Ascent from Earth's surface~~        (Abandoned due to complexity of atmospheric drag)
-- [ ] ~~Circularization burn~~               (Postponed due to complexity of rocket equation)
+- [ ] Circularization burn               (Postponed due to complexity of rocket equation)
 - [x] Demonstration of stable Earth orbit
 - [ ] Transfer burn to solar orbit           (Postponed due to complexity of rocket equation)
 - [ ] Transfer burn to binary system         (Postponed due to complexity of rocket equation)
